@@ -14,13 +14,8 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'inside-product',
-    children: [
-      {
-        path: '',
-        component: InsideProductComponent
-      }
-    ]
+    path: 'inside-product/:productId',
+    component: InsideProductComponent
   }
 ];
 

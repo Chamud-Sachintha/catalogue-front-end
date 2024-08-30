@@ -24,4 +24,9 @@ export class CatalogueService {
     const path = environment.apiUrl + "filter-products-by-category";
     return this.http.post(path, requestParamModel);
   }
+
+  getProductInfoById(requestParamModel: Request) {
+    const path = environment.apiUrl + "get-product-info";
+    return this.http.post(path, requestParamModel);
+  }
 }

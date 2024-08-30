@@ -6,6 +6,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Category } from '../../../shared/models/Category/category';
 import { Request } from '../../../shared/models/Request/request';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-app-home',
@@ -26,7 +27,7 @@ export class AppHomeComponent implements OnInit {
   itemsPerPage = 10;
   totalItems = 100;
 
-  constructor (private productService: CatalogueService) {}
+  constructor (private productService: CatalogueService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadProductList();
@@ -89,6 +90,11 @@ export class AppHomeComponent implements OnInit {
     this.filteredProducts = this.productList.filter(product =>
       product.productName.toLowerCase().includes(this.searchText.toLowerCase())
     );
+  }
+
+  onClickSeeProduct(productId: string) {
+    this.router.navigate(['/inside-product', productId]);
+    return false;
   }
 
 }

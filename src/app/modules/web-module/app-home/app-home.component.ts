@@ -19,7 +19,7 @@ export class AppHomeComponent implements OnInit {
 
   productList: Product[] = [];
   categoryList: Category[] = [];
-  filteredProducts: Product[] = []; 
+  filteredProducts: Product[] = [];
   requestParamModel = new Request();
   searchText = '';
 
@@ -27,7 +27,7 @@ export class AppHomeComponent implements OnInit {
   itemsPerPage = 10;
   totalItems = 100;
 
-  constructor (private productService: CatalogueService, private router: Router) {}
+  constructor(private productService: CatalogueService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadProductList();
@@ -68,8 +68,7 @@ export class AppHomeComponent implements OnInit {
 
     this.filteredProducts = [];
 
-    if(categoryId == "99")
-    {
+    if (categoryId == "99") {
       this.loadProductList();
     } else {
       this.requestParamModel.categoryId = categoryId;
